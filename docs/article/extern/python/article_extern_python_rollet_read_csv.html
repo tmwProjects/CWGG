@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>From Excel to Python &#8212; Computational working in Geoscience and Geography</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="R" href="../../../main_sites/main_r.html" />
+    <link rel="prev" title="Projekte aus der Community" href="../../intern/python/article_python_student_project.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">If you are interested in contributing, get in touch with us!</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo1.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational working in Geoscience and Geography</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Welcome to CWGG
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Prinzipien des wissenschaftlichen Arbeiten in Geoscience und Geographie
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../main_sites/main_principles_of_scientific_work_in_geo.html">
+   Prinzipien des wissenschaftlichen Arbeiten in Geoscience und Geographie
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../intern/science_data/article_git_github_gitlab.html">
+     Git and Github
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../intern/science_data/article_datamanagement.html">
+     Datenmanagement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../intern/science_data/article_metadata.html">
+     Metadaten in den Wissenschaften
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../intern/science_data/article_licenses.html">
+     Lizensierungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../intern/science_data/article_public_repositories_geodata.html">
+     Öffentliche Repositorien für Geo-Data-Sets
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/python/article_python_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/python/article_python_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/python/article_python_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../intern/python/article_python_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     From Excel to Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_r.html">
+   R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/r/article_r_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/r/article_r_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/r/article_r_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../intern/r/article_r_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r/article_extern_r_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r/article_extern_r_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r/article_extern_r_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../r/article_extern_r_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Excel and LO-Calc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_excel_calc.html">
+   Excel und LO-Calc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/excel_calc/article_excel_calc_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/excel_calc/article_excel_calc_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/excel_calc/article_excel_calc_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../intern/excel_calc/article_excel_calc_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../excel_calc/article_extern_excel_calc_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../excel_calc/article_extern_excel_calc_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../excel_calc/article_extern_excel_calc_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../excel_calc/article_extern_excel_calc_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GIS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_gis.html">
+   GIS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/gis/article_gis_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/gis/article_gis_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/gis/article_gis_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../intern/gis/article_gis_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gis/article_extern_gis_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gis/article_extern_gis_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gis/article_extern_gis_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../gis/article_extern_gis_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  LaTEX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_latex.html">
+   LaTEX
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/latex/article_latex_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/latex/article_latex_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/latex/article_latex_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../intern/latex/article_latex_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../latex/article_extern_latex_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../latex/article_extern_latex_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../latex/article_extern_latex_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../latex/article_extern_latex_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_unix.html">
+   Unix Systeme
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/unix/article_unix_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/unix/article_unix_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/unix/article_unix_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../intern/unix/article_unix_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unix/article_extern_unix_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unix/article_extern_unix_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unix/article_extern_unix_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unix/article_extern_unix_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pandoc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_pandoc.html">
+   Pandoc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/pandoc/article_pandoc_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/pandoc/article_pandoc_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intern/pandoc/article_pandoc_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../intern/pandoc/article_pandoc_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandoc/article_extern_pandoc_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandoc/article_extern_pandoc_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandoc/article_extern_pandoc_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandoc/article_extern_pandoc_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weiteres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_Cross_topic_tools.html">
+   Themenübergreifende Tools für Workflow
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_community.html">
+   Community
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_ways_to_share.html">
+   Teile dieses Buch
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_contributing.html">
+   Contributing
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Farticle/extern/python/article_extern_python_rollet_read_csv.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/article/extern/python/article_extern_python_rollet_read_csv.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-1">
+   Assignment 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-data">
+     1. Importing data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clean-up-the-data">
+     2. Clean up the data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>From Excel to Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assignment-1">
+   Assignment 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-data">
+     1. Importing data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clean-up-the-data">
+     2. Clean up the data
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="from-excel-to-python">
+<h1>From Excel to Python<a class="headerlink" href="#from-excel-to-python" title="Permalink to this headline">#</a></h1>
+<section id="assignment-1">
+<h2>Assignment 1<a class="headerlink" href="#assignment-1" title="Permalink to this headline">#</a></h2>
+<section id="importing-data">
+<h3>1. Importing data<a class="headerlink" href="#importing-data" title="Permalink to this headline">#</a></h3>
+<p>We start by loading the data as csv file… But beware!
+Encoding error! A none default encoding of the csv is found by the IDE.
+To import correctly change encoding in argument</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&#39;Ubung 1 Kamchatka.csv&#39;, sep=&#39;;&#39;, encoding=&#39;windows-1252&#39;, skipinitialspace = True) 
+pd.set_option(&#39;display.max_columns&#39;, None)      
+</pre></div>
+</div>
+</section>
+<section id="clean-up-the-data">
+<h3>2. Clean up the data<a class="headerlink" href="#clean-up-the-data" title="Permalink to this headline">#</a></h3>
+<p>Now that the data is imported we have a lot of columns to deal with. We don’t need them so let’s get them out.
+This is done by calling the ‘drop’ function.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.drop([&#39;units&#39;,&#39;sample&#39;,&#39;Age&#39;, &#39;volcano&#39;, &#39;location&#39;, &#39;sampletype&#39;, &#39;rocktype_div&#39;, &#39;refchem&#39;, &#39;longitude&#39;, &#39;latitude&#39;], axis=1, inplace=True)                                        
+</pre></div>
+</div>
+<p>Great, now we can work with the data set! Before we can start calculating things, we need to clean up this mess a little further.</p>
+<p>There are several types of errors that can occur, when try to work with the data. This includes:</p>
+<ul class="simple">
+<li><p>Non-zero Values (NaN)</p></li>
+<li><p>excess Whitespace</p></li>
+<li><p>letters in between numbers</p></li>
+</ul>
+<p>An error that might occur when accessing the columns is the following:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>-&gt; &#39;Key Error = &#39; SiO &#39;
+</pre></div>
+</div>
+<p>This means there is an issue with the column name addressed. In order to find the error, the columns can be displayed</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>code for this goes here
+</pre></div>
+</div>
+<p>The additional white space at any position can be removed by using the replace function.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df = df.str.replace(&#39; &#39;,&#39;&#39;)
+</pre></div>
+</div>
+<p>There some others ways white space can be exspunged:</p>
+<ul class="simple">
+<li><p>If a csv_read method is used, the ‘skipinitialspace’ argument can be used to get rid of any intial white space</p></li>
+<li><p>in the dataframe</p></li>
+<li><p>The replace() or strip() function can be used on every column</p></li>
+<li><p>One can write their own function to strip the dataframe of whitespace</p></li>
+</ul>
+<p>In this example we will use the first way. Let’s see if we can add the column now
+In the next step we will address the clean up of the data we have.
+to get rid of any lines that have no values in them, we apply:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df = df.dropna(how=&#39;all&#39;)
+</pre></div>
+</div>
+<p>Now we have a lot of NaN values. NaN resembles a non integer object and can lead to issues later.
+Therefore we need to replace these values with actual zeros which can be done with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df = df.fillna(0)
+</pre></div>
+</div>
+<p>It appears there is more to be done since our values appear to be objects
+We can verify this with the info statement</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.replace(to_replace=&#39;,&#39;, value=&#39;.&#39;, inplace=True)
+</pre></div>
+</div>
+<p>This changes all values so they are recognized as numerical values
+Even though there still seems to be an issue with the column ‘MnO’
+The issue here is whitespace in the middle of the value
+Ridding values of the whitespace inbetween can be done by using the replace method
+Whitespace is replaced by an truly empty space even though the white space is removed more errors occur!
+At this point it is easier for just one value to just replace it by hand before you invest to much time.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;MnO&#39;]= df[&#39;MnO&#39;].str.replace(&#39; &#39;,&#39;&#39;)
+</pre></div>
+</div>
+<p>For some reason, MnO isn’t recognized as an integer. We will fix that by casting the row as integer.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;MnO&#39;]=pd.to_numeric(df[&#39;MnO&#39;])
+</pre></div>
+</div>
+<p>Now since the data is cleaned up, we can get into calculating stuff.
+We have to account for the Iron, so we have to recalculate all Fe2O3 to FeO</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;FeOtot&#39;]=df[&#39;FeO&#39;]+((df[&#39;Fe2O3&#39;]/(2*Fe+3*O))*(2*(Fe+O)))
+</pre></div>
+</div>
+<p>Since we don’t need FeO and Fe2O3 no longer, the columns are dropped</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.drop([&#39;FeO&#39;, &#39;Fe2O3&#39;], axis=1,inplace=True)
+</pre></div>
+</div>
+<p>Also we should adapt our floating point numbers so they aren’t to confusing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pd.options.display.float_format = &#39;{:.2f}&#39;.format   
+</pre></div>
+</div>
+<p>Let’s start by making the sum for every sample in a new column</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;sum&#39;]= df.sum(axis=1)
+</pre></div>
+</div>
+<p>The next step in order to normalise the concentrations is to get rid of the LOI.
+For this we can perform a substraction operation of the two coloumns</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;sum&#39;]=df[&#39;sum&#39;]-df[&#39;LOI&#39;]
+</pre></div>
+</div>
+<p>Let’s also reset the index and get rid of the old!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df=df.reset_index()
+</pre></div>
+</div>
+<p>Since we don’t need this coloumn anymore, we can drop it.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.drop([&#39;LOI&#39;,&#39;index&#39;], axis=1, inplace=True)
+</pre></div>
+</div>
+<p>One can save the subtraction step by dropping the LOI column before summing up!
+The next step is the actual normalising of the columns by making a normalising factor</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;sum_norm&#39;]=100/df[&#39;sum&#39;]
+df.update(df.iloc[:, 1:13].mul(df.sum_norm, 0))
+</pre></div>
+</div>
+<p>Now we calculate interesting Ion ratios</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;MgO/FeO&#39;]= df[&#39;MgO&#39;]/df[&#39;FeOtot&#39;]
+df[&#39;Kation_Mg/Fe&#39;]= (df[&#39;MgO&#39;]/(Mg+O)*Mg)/(df[&#39;FeOtot&#39;]/(Fe+O)*Fe)
+df[&#39;Molverhältnis_Mg/Fe&#39;]= (df[&#39;MgO&#39;]/(Mg+O))/(df[&#39;FeOtot&#39;]/(Fe+O))
+</pre></div>
+</div>
+<p>In order to plot a TAS diagramm we need the Total alkali value</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;Alkali&#39;]=df[&#39;Na2O&#39;]+df[&#39;K2O&#39;]
+</pre></div>
+</div>
+<p>Time to plot some graphs!
+For that we will need to import matplotlib!</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.plot(kind=&quot;scatter&quot;, x=&quot;SiO2&quot;, y=&quot;Alkali&quot;, s=20)
+df.plot(kind=&quot;scatter&quot;, x=&quot;SiO2&quot;, y=&quot;MgO&quot;, s=20)
+plt.show()
+</pre></div>
+</div>
+<p>Congratulations, you have succesfully made your first Analysis and plotted some graphs by using Python!</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./article/extern/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../intern/python/article_python_student_project.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Projekte aus der Community</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../../main_sites/main_r.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">R</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tobias Rollet & Timm M. Wirtz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
