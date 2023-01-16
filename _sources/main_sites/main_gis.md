@@ -1,3 +1,0 @@
-# GIS?
-
-Content follows soon

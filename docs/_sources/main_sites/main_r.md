@@ -1,3 +1,0 @@
-# R?
-
-Content follows soon

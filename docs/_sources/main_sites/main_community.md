@@ -1,3 +1,0 @@
-# Community
-
-Content follows soon

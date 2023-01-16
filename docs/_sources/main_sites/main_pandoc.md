@@ -1,3 +1,0 @@
-# Pandoc?
-
-Content follows soon

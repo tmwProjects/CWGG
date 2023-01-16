@@ -1,3 +1,0 @@
-# Licensations
-
-Content follows soon

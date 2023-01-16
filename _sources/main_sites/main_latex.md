@@ -1,3 +1,0 @@
-# LaTEX?
-
-Content follows soon

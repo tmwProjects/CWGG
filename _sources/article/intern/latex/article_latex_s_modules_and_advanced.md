@@ -1,3 +1,0 @@
-# Packages
-
-Content follows soon
