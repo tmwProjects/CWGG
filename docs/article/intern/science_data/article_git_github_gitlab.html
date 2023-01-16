@@ -1,0 +1,1655 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Version control with Git &#8212; Computational working in Geoscience and Geography</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Datenmanagement" href="article_datamanagement.html" />
+    <link rel="prev" title="Computational principles in science?" href="../../../main_sites/main_principles_of_scientific_work_in_geo.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">If you are interested in contributing, get in touch with us!</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo1.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational working in Geoscience and Geography</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Welcome to CWGG
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Computational principles in science
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../../main_sites/main_principles_of_scientific_work_in_geo.html">
+   Computational principles in science?
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Version control with Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="article_datamanagement.html">
+     Datenmanagement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="article_metadata.html">
+     Metadaten in den Wissenschaften
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="article_licenses.html">
+     Lizensierungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="article_data_repositories.html">
+     Data Repositories
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_python.html">
+   Python?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/article_python_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/article_python_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../python/article_python_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python/article_python_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/python/article_extern_python_rollet_read_csv.html">
+     From Excel to Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_r.html">
+   R?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../r/article_r_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../r/article_r_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../r/article_r_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../r/article_r_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Excel and LO-Calc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_excel_calc.html">
+   Excel and LO-Calc?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GIS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_gis.html">
+   GIS?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gis/article_gis_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gis/article_gis_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gis/article_gis_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../gis/article_gis_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  LaTEX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_latex.html">
+   LaTEX?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/article_latex_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/article_latex_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/article_latex_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../latex/article_latex_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_unix.html">
+   Unix ?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unix/article_unix_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unix/article_unix_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unix/article_unix_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../unix/article_unix_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pandoc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_pandoc.html">
+   Pandoc?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandoc/article_pandoc_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandoc/article_pandoc_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandoc/article_pandoc_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandoc/article_pandoc_student_project.html">
+   Projekte aus der Community
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Weiteres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_Cross_topic_tools.html">
+   Cross topic tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_community.html">
+   Community
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_ways_to_share.html">
+   Share this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_contributing.html">
+   Contributing
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Farticle/intern/science_data/article_git_github_gitlab.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/article/intern/science_data/article_git_github_gitlab.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-git-and-github">
+   What is Git and Github?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-git">
+     Install Git
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-linux">
+       Git for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-windows">
+       Git for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-macos">
+       Git for MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-local-configuration">
+     Git - Local configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-new-repository">
+     Create a new repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-git">
+     Working with git
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-add-bridge-between-working-directory-and-staging-area">
+       git add - Bridge between working directory and staging area
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-commit-bridge-between-staging-area-and-repository">
+       git commit - Bridge between staging area and repository
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-log-history-of-the-commits">
+       git log - History of the commits
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-diff-show-differences">
+       git diff - Show differences
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-reset-revert-changes">
+       Git reset - revert changes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-checkout-jump-to-a-commit">
+       Git checkout - Jump to a commit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-stash-cache-changes">
+       Git stash - cache changes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-revert-undo-changes-other-way">
+       Git revert - Undo changes (Other way)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-blame">
+       Git blame
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gitignore-data">
+       .gitignore-Data
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Version control with Git</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-git-and-github">
+   What is Git and Github?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-git">
+     Install Git
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-linux">
+       Git for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-windows">
+       Git for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-macos">
+       Git for MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-local-configuration">
+     Git - Local configuration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-new-repository">
+     Create a new repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#working-with-git">
+     Working with git
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-add-bridge-between-working-directory-and-staging-area">
+       git add - Bridge between working directory and staging area
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-commit-bridge-between-staging-area-and-repository">
+       git commit - Bridge between staging area and repository
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-log-history-of-the-commits">
+       git log - History of the commits
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-diff-show-differences">
+       git diff - Show differences
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-reset-revert-changes">
+       Git reset - revert changes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-checkout-jump-to-a-commit">
+       Git checkout - Jump to a commit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-stash-cache-changes">
+       Git stash - cache changes
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-revert-undo-changes-other-way">
+       Git revert - Undo changes (Other way)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-blame">
+       Git blame
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#gitignore-data">
+       .gitignore-Data
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="version-control-with-git">
+<h1>Version control with Git<a class="headerlink" href="#version-control-with-git" title="Permalink to this headline">#</a></h1>
+<p><a name="wig"></a></p>
+<section id="what-is-git-and-github">
+<h2>What is Git and Github?<a class="headerlink" href="#what-is-git-and-github" title="Permalink to this headline">#</a></h2>
+<p>Git is a free, distributed version control system for software projects that was released in its first version in 2005.
+The programme allows multiple developers to work on a project simultaneously, regardless of their location. Version
+control makes it easy to add changes to the project independently and from anywhere, to log and track these changes,
+and to access older versions of the project at a later date. Git is platform-independent and can therefore be used in
+almost any environment.</p>
+<p>GitHub, on the other hand, facilitates git collaboration. It is a platform that can hold code repositories in a
+cloud-based repository so that multiple developers can work on a single project and see each other’s edits in real time:</p>
+<p>It also contains functions for project organisation and project management. For example, you can assign tasks to
+individuals or groups, set permissions and roles for collaborators and use comment moderation to keep everyone up to
+date. In addition, the GitHub repositories are publicly accessible. Developers from around the world can interact with
+and contribute to each other’s code to modify or improve it.</p>
+<p>For research, the <a class="reference external" href="https://docs.github.com/en">Docs</a> of Github or the
+<a class="reference external" href="https://git-scm.com/doc">Docs</a> of Git can be used. For the workflow, an initial exposure to Git is extremely
+helpful, allowing the work processes to be understood concretely. are understood.</p>
+<p><a name="gconf"></a></p>
+<section id="install-git">
+<h3>Install Git<a class="headerlink" href="#install-git" title="Permalink to this headline">#</a></h3>
+<p><a name="gfl"></a></p>
+<section id="git-for-linux">
+<h4>Git for Linux<a class="headerlink" href="#git-for-linux" title="Permalink to this headline">#</a></h4>
+<p>Execute the following command in the terminal:</p>
+<pre><code>sudo apt-get install git</code></pre>
+<p><a name="gfw"></a></p>
+</section>
+<section id="git-for-windows">
+<h4>Git for Windows<a class="headerlink" href="#git-for-windows" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Git for Windows from <a class="reference external" href="https://git-scm.com/download/win">here</a>.</p></li>
+<li><p>Run the installer and follow the wizard steps.</p></li>
+</ol>
+<p><a name="gfm"></a></p>
+</section>
+<section id="git-for-macos">
+<h4>Git for MacOS<a class="headerlink" href="#git-for-macos" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Git for Windows from <a class="reference external" href="https://git-scm.com/download/mac">here</a>.</p></li>
+<li><p>Run the installer and follow the wizard steps.</p></li>
+</ol>
+<p><a name="gitconf"></a></p>
+</section>
+</section>
+<section id="git-local-configuration">
+<h3>Git - Local configuration<a class="headerlink" href="#git-local-configuration" title="Permalink to this headline">#</a></h3>
+<p>Installation instructions for the respective operating system can be readily obtained from Google. One of the first
+steps in using Git in conjunction with Gibhub is to configure Git on your own computer.</p>
+<p>Inside the terminal:</p>
+<pre><code>git config --global user.name "Pseudonym/Name"
+git config --global user.mail "Mailadress"</code></pre>
+<p>Furthermore, extremely complex configurations are possible.</p>
+<p><a name="repo"></a></p>
+</section>
+<section id="create-a-new-repository">
+<h3>Create a new repository<a class="headerlink" href="#create-a-new-repository" title="Permalink to this headline">#</a></h3>
+<p>The initialisation command of Git is necessary for this:</p>
+<pre><code>git init</code></pre>
+<p>Git then creates a new repository directory in the current directory. All files required by Git are stored in the
+subfolder /.git. In UNIX systems, the dot in front of the folder name indicates that this directory is hidden.</p>
+<p>Git stores the corresponding versions of the programme we are working on in .git so that we can subsequently track how
+we have changed our programme.</p>
+<p>Example: I want to create a repository called <strong>program</strong>.</p>
+<p>I create a directory called <strong>program</strong>.</p>
+<pre><code>mkdir /home/user/program</code></pre>
+<p>I then change to the appropriate directory and create the appropriate repository using Git’s initialisation command:</p>
+<pre><code>cd /home/user/program</code></pre>
+<pre><code>git init</code></pre>
+<p>If you change to the appropriate /.git directory and run the ls command, you will get the following output:</p>
+<pre><code>branches  config  description  HEAD  
+
+hooks  info  objects  refs
+</code></pre>
+<p>The folder /.git contains various subfolders, which we won’t be doing much with at the moment, as Git automatically
+manages all versions.</p>
+<p><a name="change"></a></p>
+</section>
+<section id="working-with-git">
+<h3>Working with git<a class="headerlink" href="#working-with-git" title="Permalink to this headline">#</a></h3>
+<p>The following will be about understanding how the different versions are managed within a project and what nutritional
+value git offers for one’s own workflow. Many IDEAs facilitate working with Git in connection with Github. However, it
+is also necessary here to understand what is actually used how and above all why within the IDEA.
+Here, everyone is free to do version management relatively automatically or manually.</p>
+<p>In the following, we will first introduce version management with Git. It should be noted that we will work exclusively
+locally. This means that all changes and subsequent work will be done exclusively on our own computer and nothing will
+be put online.</p>
+<p><a name="gitadd"></a></p>
+<section id="git-add-bridge-between-working-directory-and-staging-area">
+<h4>git add - Bridge between working directory and staging area<a class="headerlink" href="#git-add-bridge-between-working-directory-and-staging-area" title="Permalink to this headline">#</a></h4>
+<p>With a <strong>commit</strong>, the state of a project is saved at the corresponding time where the command was listed. Here, a
+commit corresponds to a version of the project, so to speak.</p>
+<p>It is important to understand here that with a commit, the state of a project or a specific file in our <strong>working directory</strong>
+is transferred from the project to the so-called <strong>staging area</strong>. A commit is first prepared in the staging area with
+the following command:</p>
+<p>For single file:</p>
+<pre><code>git add [FILE]</code></pre>
+<p>For entire folders:</p>
+<pre><code>git add [FOLDER]</code></pre>
+<p>After we have marked the corresponding files/folders with the command in the staging area, we could execute a commit
+directly. First, however, an important note:</p>
+<p>Assuming we would continue to write our programme in our working directory after committing to the staging area, the
+changes we have made would not be adopted by the version stored in the staging area. For this, we would have to execute
+the git add command again.</p>
+<p>Here it can be helpful to imagine several working levels:</p>
+<p><img alt="alt text" src="https://github.com/tmwProjects/MSAT/blob/master/Pictures/gitstations.jpg" /></p>
+<p><a name="gitcommit"></a></p>
+</section>
+<section id="git-commit-bridge-between-staging-area-and-repository">
+<h4>git commit - Bridge between staging area and repository<a class="headerlink" href="#git-commit-bridge-between-staging-area-and-repository" title="Permalink to this headline">#</a></h4>
+<p>Since we have stored the current version of our programme in the staging area, we should switch to storing the current
+version in our repository from our staging area. This can be done by using the following command in the terminal:</p>
+<pre><code>git commit -m "message"</code></pre>
+<p>This command creates a new commit from all the staged changes. When committing, it is necessary to store a commit message.
+For a better overview, it is helpful to store in the commit message what was specifically changed. Short and concise is
+the appropriate home remedy for the first line. This is followed by an empty line and then a small, more concrete description.</p>
+<p>For this purpose, the parameter -m is used in connection with the message in the inverted commas. If a commit was carried
+out, a concrete <strong>commit ID</strong> is attributed to this commit. This is important when it comes to the work history of the
+repository.</p>
+<p>It is worth noting that one atomic change per commit should be used to maintain the clarity of the repository.</p>
+<p>Here are two examples:</p>
+<ul class="simple">
+<li><p>One commit per bug</p></li>
+<li><p>One commit per feature</p></li>
+</ul>
+<p>If the commit command was used without the <strong>-m</strong> parameter, Git will prompt you to put a message in a text file. If
+this doesn’t happen, for example because you don’t leave a message, the commit command will be aborted.</p>
+<p><strong>Tip</strong>: If a programming project is growing and other programmers from all over the world may be working on your project,
+it would be advisable to leave all commit messages in English.</p>
+<p>The <strong>following</strong> parameter is useful if you have committed something and later find out that what you committed doesn’t really work.
+Then the original commit gets a new commit ID. This way, you don’t have to do another commit.</p>
+<p>To change a commit, use the following command in the terminal:</p>
+<pre><code>git commit --amend</code></pre>
+<p>This will ensure that the latest changes from your <strong>working directory</strong> are included in the <strong>staging area</strong>.</p>
+<p><strong>Important</strong>: This rewrites the log from the repository. More precisely, the last commit is overwritten. Ideally, you
+should only use this command locally on your computer.</p>
+<p>This becomes important when several people are working on a repository. Confusion can arise because not all people
+working on the repository have the same version on their computer.</p>
+<p><a name="gitlog"></a></p>
+</section>
+<section id="git-log-history-of-the-commits">
+<h4>git log - History of the commits<a class="headerlink" href="#git-log-history-of-the-commits" title="Permalink to this headline">#</a></h4>
+<p>This command allows you to display the individual changes to your repository. An individual commit is clearly identified
+by its SHA I hash. These hashes are created on the basis of the corresponding commit so that no two commits can have the
+same checksums.</p>
+<p>To do this, use the following command in the terminal:</p>
+<pre><code>git log</code></pre>
+<p>The order of the commit history is such that the oldest change is shown at the bottom and the most recent at the top.
+You are shown the individual commits, including the corresponding checksums, author’s name, time and, last but not least,
+your commit message. It is important to note here that the most recent commit is referred to as <strong>HEAD</strong>.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">commit</span> <span class="mi">0</span><span class="n">fc55f28f09d4590c20422608bb58e7c8c3c307f</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">HEAD</span><span class="p">)</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">jbloggs</span> <span class="o">&lt;</span><span class="n">jane</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@protonmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Jul</span> <span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">33</span><span class="p">:</span><span class="mi">54</span> <span class="mi">2021</span> <span class="o">+</span><span class="mi">0200</span>
+
+<span class="n">Changes</span>
+
+<span class="n">commit</span> <span class="mi">0</span><span class="n">d3407f361bfa326848843f89f65677b668f89e8</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">jbloggs</span> <span class="o">&lt;</span><span class="n">jane</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@protonmail</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Jul</span> <span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">53</span> <span class="mi">2021</span> <span class="o">+</span><span class="mi">0200</span>
+
+<span class="n">Changes</span>
+
+<span class="n">commit</span> <span class="n">f759673ab7192fc2c22e7a2af723ea7f0b2adccf</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">jbloggs</span> <span class="o">&lt;</span><span class="n">jane</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@protonmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Jul</span> <span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">23</span> <span class="mi">2021</span> <span class="o">+</span><span class="mi">0200</span>
+
+<span class="n">Changes</span>
+
+<span class="n">commit</span> <span class="n">f3a0ab4bd479ebd110e6a13e62462857143050c5</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">jbloggs</span> <span class="o">&lt;</span><span class="n">jane</span><span class="o">.</span><span class="n">bloggs</span><span class="nd">@protonmail</span><span class="o">.</span><span class="n">com</span><span class="o">&gt;</span>
+<span class="n">Date</span><span class="p">:</span>   <span class="n">Tue</span> <span class="n">Jul</span> <span class="mi">13</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">19</span> <span class="mi">2021</span> <span class="o">+</span><span class="mi">0200</span>
+</pre></div>
+</div>
+<p>If we look at the history of the repository, we see a history with different hash values. The last commit is referred
+to here as HEAD. HEAD here means the most recent commit checked out.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="n">fc55f2</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">HEAD</span><span class="p">)</span> <span class="n">Changes</span>
+<span class="mi">0</span><span class="n">d3407f</span> <span class="n">Changes</span>
+<span class="n">f759623</span> <span class="n">Changes</span>
+<span class="n">f3a0db4</span> <span class="n">Changes</span>
+<span class="mi">82</span><span class="n">b182b</span> <span class="n">Update</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">d02ccb6</span> <span class="n">Add</span> <span class="n">files</span> <span class="n">via</span> <span class="n">upload</span>
+<span class="mi">0</span><span class="n">df2ffe</span> <span class="n">Create</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="mf">32e5</span><span class="n">dca</span> <span class="n">Initial</span> <span class="n">commit</span>
+</pre></div>
+</div>
+<p>We see here a series of commits with corresponding abbreviations of the hash values and the <strong>HEAD</strong> commit. If we look at
+the commits from top to bottom, the second commit (calculated from <strong>HEAD</strong>) is correspondingly the second to last commit.
+This can be identified not only with its checksum, but also as <strong>HEAD~1</strong>. This is the parent of the <strong>HEAD</strong> commit.
+The third commit is then <strong>HEAD~2</strong>, the fourth commit is <strong>HEAD~3</strong>, etc.</p>
+<p>These names can also be used instead of the hash values of the individual commits. This makes it a little more
+convenient to work with.</p>
+<p>Example:</p>
+<pre><code>git diff f759623 HEAD</code></pre>
+<p>or</p>
+<pre><code>git diff HEAD~1 HEAD</code></pre>
+<p>Another important parameter for the command is <strong>-p</strong>. This displays significantly more information for the commits, such
+as which lines within the code specifically added or removed. If the commit needs to be displayed in less detail, the
+following parameter can be used:</p>
+<pre><code>git log --oneline</code></pre>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="n">fc55f2</span> <span class="p">(</span><span class="n">HEAD</span> <span class="o">-&gt;</span> <span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span><span class="p">,</span> <span class="n">origin</span><span class="o">/</span><span class="n">HEAD</span><span class="p">)</span> <span class="n">Changes</span>
+<span class="mi">0</span><span class="n">d3407f</span> <span class="n">Changes</span>
+<span class="n">f759623</span> <span class="n">Changes</span>
+<span class="n">f3a0db4</span> <span class="n">Changes</span>
+<span class="mi">82</span><span class="n">b182b</span> <span class="n">Update</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="n">d02ccb6</span> <span class="n">Add</span> <span class="n">files</span> <span class="n">via</span> <span class="n">upload</span>
+<span class="mi">0</span><span class="n">df2ffe</span> <span class="n">Create</span> <span class="n">README</span><span class="o">.</span><span class="n">md</span>
+<span class="mf">32e5</span><span class="n">dca</span> <span class="n">Initial</span> <span class="n">commit</span>
+</pre></div>
+</div>
+<p>For more information on the parameters use:</p>
+<pre><code>git log -h
+git log --help</code></pre>
+<p><a name="gitdiff"></a></p>
+</section>
+<section id="git-diff-show-differences">
+<h4>git diff - Show differences<a class="headerlink" href="#git-diff-show-differences" title="Permalink to this headline">#</a></h4>
+<p>This command is useful if you are working within your working directory, but you are not sure which changes have already
+been applied to your staging area. With the following command, you can see the relative changes between the working
+directory and the staging area:</p>
+<pre><code>git diff</code></pre>
+<p>To see the relative changes between the staging area and the repository, use the <strong>–cached</strong> parameter.</p>
+<p>Example:</p>
+<pre><code>git diff --cached</code></pre>
+<p>If you want to see specific differences between two individual commits, you need the commit IDs of the two commits and
+the following command:</p>
+<pre><code>git diff [hash1] [hash2]</code></pre>
+<p>Example:</p>
+<pre><code>git diff 0d3407f f3a0db4</code></pre>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="mi">0</span><span class="n">d3407f</span> <span class="n">f3a0db4</span>
+
+<span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">Program</span><span class="o">/</span><span class="n">program</span><span class="o">.</span><span class="n">py</span> <span class="n">b</span><span class="o">/</span><span class="n">Program</span><span class="o">/</span><span class="n">program</span><span class="o">.</span><span class="n">py</span>
+<span class="n">index</span> <span class="mi">12</span><span class="n">b063f</span><span class="o">.</span><span class="mf">.4</span><span class="n">a669d8</span> <span class="mi">100755</span>
+<span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">Program</span><span class="o">/</span><span class="n">program</span><span class="o">.</span><span class="n">py</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">Program</span><span class="o">/</span><span class="n">program</span><span class="o">.</span><span class="n">py</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span> <span class="o">@@</span>
+ <span class="c1">#!/usr/bin/env python</span>
+</pre></div>
+</div>
+<p>The variables <strong>a</strong> and <strong>b</strong> in front of the individual versions do <strong>not</strong> refer to concrete folders or directories,
+but to the corresponding versions that we put into relation.</p>
+<p>The following output:</p>
+<pre><code>@@ -1,7 +1,5 @@</code></pre>
+<p>means that in the first file the <strong>first line</strong> has been deleted and a total of <strong>seven lines</strong> are output, therefore
+<strong>-1.7</strong>. Subsequently, with the second file, one is added to the <strong>first line</strong> and a total of <strong>five lines</strong> are output,
+therefore +1.5</p>
+<p><strong>Important</strong>: If the command <strong>git diff –cached</strong> does not produce any output, it is probably because no concrete
+changes were made in the staging area.</p>
+<p>It is quite possible that the comparison will show you changes that may not be correct. This is probably because git
+assumes what changes need to be made to get from hash1 to hash2. Therefore, it is important to store the hash values
+from old to young.</p>
+<p><strong>Note</strong>: Whoever commits <strong>first</strong> should also be named <strong>first</strong>.</p>
+<p>In the simple case that we look at the changes of commits in relation to a single file, then it becomes quite clear.
+However, it is often the case that within a project there are several files that are changed within one commit. Then,
+of course, you will see a lot of changes. In order to be able to differentiate this somewhat, use the following important
+parameter to view the changes of a specific file:</p>
+<pre><code>git diff [hash1] [hash2] -- [dataname]</code></pre>
+<p>Example:</p>
+<pre><code>git diff 0d3407f f3a0db4 -- program.py</code></pre>
+<p>Note: The <strong>– [dataname]</strong> parameter can be used with all the git commands presented, such as git log. It is also possible
+to view changes to specific file formats or filenames. A proxy can be used for this.</p>
+<p>Example:</p>
+<pre><code>git log -- *.py</code></pre>
+<p>or</p>
+<pre><code>git log -- program.*</code></pre>
+<p><a name="gitreset"></a></p>
+</section>
+<section id="git-reset-revert-changes">
+<h4>Git reset - revert changes<a class="headerlink" href="#git-reset-revert-changes" title="Permalink to this headline">#</a></h4>
+<p>Here we can remove <strong>all</strong> changes from the <strong>staging-area</strong>.  The prerequisite for this command is that changes are
+stored in the staging area at all.For this we use the following command:</p>
+<pre><code>git reset</code></pre>
+<p>If it is a question of removing <strong>specific</strong> changes, such as from a specific file, then the following command can be
+used in conjunction with the corresponding file parameter in the terminal:</p>
+<pre><code>git reset [filename]</code></pre>
+<p>But not only all changes marked for a commit can be undone, but also changes that refer specifically to a commit. The
+following command is responsible for this:</p>
+<pre><code>git reset [commit hash]</code></pre>
+<p>Here, all changes in the workind directory remain, but all commits <strong>after</strong> the commit with the specified commit hash
+are deleted. This means that all changes that have already been committed to the repository with the corresponding
+commits are returned to the working directory after the above command.</p>
+<p><img alt="alt text" src="https://github.com/tmwProjects/MSAT/blob/master/Pictures/gitreset.jpg" /></p>
+<p>Another important parameter, but one that should be used with caution, is the <strong>–hard</strong> parameter. Here, all commits
+are also deleted after the corresponding commit hash. The difference to the previous command is that <strong>all</strong> changes
+are <strong>discarded</strong>. To do this, use the following command in the terminal:</p>
+<pre><code>git reset --hard [commit hash]</code></pre>
+<p><strong>Important</strong>: When working with the git reset command, you must be careful, because this command can cause significant
+data loss. Do not use this command when working with remote repositories, such as Github. These repositories are often
+shared with other people and this command automatically changes the git history. If in doubt, always tend to <strong>not</strong> use
+the command.</p>
+<p>The parameter <strong>–hard</strong> can also be used in other ways. Assuming there are correct changes in your repository and you
+want to continue working on your programme based on this current repository. If you are working in your working directory
+and unfortunately find that your changes have led you astray, you can use the following command to overwrite your current
+working directory with the current repository (MASTER):</p>
+<pre><code>git reset --hard</code></pre>
+<p>But here too, make sure you know what data is in your working directory before you execute the command. This can lead
+to immense data loss.</p>
+<p><a name="check"></a></p>
+</section>
+<section id="git-checkout-jump-to-a-commit">
+<h4>Git checkout - Jump to a commit<a class="headerlink" href="#git-checkout-jump-to-a-commit" title="Permalink to this headline">#</a></h4>
+<p>The <strong>git checkout</strong> command restores the state of a given commit. Then the current working directory is in the state
+it was in at the specified commit hash. You can view files, compile the project, run tests and even edit files without
+fear of losing the current project state. None of your actions and changes are saved in the repository.</p>
+<p>Type the following command in the terminal:</p>
+<pre><code>git checkout [hash]</code></pre>
+<p><strong>Important</strong>: Git tries to make local changes here, which can lead to conflicts. Only use this command if your working
+directory is empty or has no changes.</p>
+<p>With the git checkout command, we can check out a previous commit and return the repository to the status. Checking out
+a particular commit puts the repository into a state with the HEAD detached. In the detached state, all newly made
+commits are orphaned as soon as you return to an established branch. Orphaned commits are deleted by Git during the next
+purge. The purge occurs at configured intervals and removes orphaned commits permanently. To prevent orphaned commits
+from falling victim to garbage collection, we need to make sure that we are in a branch.</p>
+<p>Once you have finished working on a particular commit, you can jump back to the original version of your project with
+the following command:</p>
+<pre><code>git checkout master</code></pre>
+<p><a name="name1"></a></p>
+</section>
+<section id="git-stash-cache-changes">
+<h4>Git stash - cache changes<a class="headerlink" href="#git-stash-cache-changes" title="Permalink to this headline">#</a></h4>
+<p>In case you want to see the status of your project from a few weeks ago, but you still have changes in your current
+working directory and/or staging area, you can use the command to display the status from that point in time without
+losing the current changes. You can use the following command to cache your current changes:</p>
+<pre><code>git stash</code></pre>
+<p>In short, git stash allows you to cache the current changes in your working directory and staging area.</p>
+<p>Workflow example:</p>
+<ol class="simple">
+<li><p>You save the current state in the stash.</p></li>
+<li><p>Look at the past commit.</p></li>
+<li><p>Switch back to the current state.</p></li>
+<li><p>Read the old state from the stash.</p></li>
+</ol>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Saved</span> <span class="n">working</span> <span class="n">directory</span> <span class="ow">and</span> <span class="n">index</span> <span class="n">state</span>
+<span class="s2">&quot;WIP on master: 016c048 Create index file&quot;</span><span class="o">.</span>
+<span class="n">HEAD</span> <span class="ow">is</span> <span class="n">now</span> <span class="n">at</span> <span class="mi">016</span><span class="n">c048</span> <span class="n">Create</span> <span class="n">index</span> <span class="n">file</span>
+<span class="p">(</span><span class="n">To</span> <span class="n">restore</span> <span class="n">them</span> <span class="nb">type</span> <span class="s2">&quot;git stash apply&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Following this, you can use the previously introduced <strong>git status</strong> command to see that your current working directory
+is cleaned up:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># On branch master</span>
+<span class="n">nothing</span> <span class="n">to</span> <span class="n">commit</span><span class="p">,</span> <span class="n">working</span> <span class="n">directory</span> <span class="n">clean</span>
+</pre></div>
+</div>
+<p>The last saved stash always has the smallest room on the list, as if you were always adding another package to a stack.
+With the following command you can look at all cached stashes:</p>
+<pre><code>git stash list</code></pre>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stash</span><span class="o">@</span><span class="p">{</span><span class="mi">0</span><span class="p">}:</span> <span class="n">WIP</span> <span class="n">on</span> <span class="n">master</span><span class="p">:</span> <span class="mi">016</span><span class="n">c048</span> <span class="n">Create</span> <span class="n">file</span>
+<span class="n">stash</span><span class="o">@</span><span class="p">{</span><span class="mi">1</span><span class="p">}:</span> <span class="n">WIP</span> <span class="n">on</span> <span class="n">master</span><span class="p">:</span> <span class="n">a1370d1</span> <span class="n">Revert</span>
+<span class="n">stash</span><span class="o">@</span><span class="p">{</span><span class="mi">2</span><span class="p">}:</span> <span class="n">WIP</span> <span class="n">on</span> <span class="n">master</span><span class="p">:</span> <span class="mi">1</span><span class="n">cd6015</span> <span class="n">Change</span> <span class="n">numbers</span>
+</pre></div>
+</div>
+<p>With the parameter <strong>pop</strong>, you can always restore the last saved stash. What is meant is that with the command</p>
+<pre><code>git stash pop</code></pre>
+<p><strong>stash&#64;{0}</strong> is restored first, followed by <strong>stash&#64;{1}</strong> and then <strong>stash&#64;{2}</strong>.</p>
+<p>You also have the option of using the already introduced command <strong>git diff</strong> to compare the current stash with what is
+in your current working directory. With the stash command and the previously introduced commands, you have creative ways
+to jump between versions and changes without having to worry about losing recent changes.</p>
+<p><a name="name1"></a></p>
+</section>
+<section id="git-revert-undo-changes-other-way">
+<h4>Git revert - Undo changes (Other way)<a class="headerlink" href="#git-revert-undo-changes-other-way" title="Permalink to this headline">#</a></h4>
+<p>Here I would like to introduce a command that also reverts changes, but in a slightly different way. Here, a new commit
+is created that reverts the corresponding changes. You have the option of changing a commit afterwards, as described
+above. This was done, for example, with the command <strong>git commit –amend</strong>, but this only worked as long as the
+repository was local. Here Git offers you the option of making a new commit that undoes all the changes made to an
+existing one.</p>
+<pre><code>git revert [Commit Hash]</code></pre>
+<p>Instead of removing the commit from the project history, it determines how to reverse changes caused by the commit. A
+new commit is then added with the corresponding reversed content. This prevents Git’s history from being truncated,
+which is important for the integrity of your commit history and for reliable collaboration.</p>
+<p>When the command is executed, a commit is created as described, which must also contain a corresponding commit message.
+In this particular case, this commit message is generated automatically. This makes sense in so far as it may not even
+be marked in the repository history that this is a revert.</p>
+<p><img alt="alt text" src="https://github.com/tmwProjects/MSAT/blob/master/Pictures/gitrevert.jpg" /></p>
+<p>You should use this undo command when you want to reverse a commit from your project history. This can be useful, for
+example, if it turns out that a bug was introduced into the project by a very specific commit. Instead of manually
+navigating to the code in question, fixing it and committing a new snapshot, you can use git revert to do the whole
+process automatically.</p>
+<p>A revert has two important advantages over a reset. First, the project history remains unaffected: The process has no
+effect on commits that have already been published in a shared repository. Second, you can apply git revert to individual
+commits at any point in the history. git reset, on the other hand, only works retroactively from the current commit.</p>
+<p>The advantage of using revert is that a new commit is created to undo certain changes. This way, no commits are deleted
+from the commit history or orphaned. git revert is the safer option compared to git reset in terms of losing code.</p>
+<p><a name="name1"></a></p>
+</section>
+<section id="git-blame">
+<h4>Git blame<a class="headerlink" href="#git-blame" title="Permalink to this headline">#</a></h4>
+<p>With this command you can display changes to a file. It shows line by line in which commit it was last changed.</p>
+<pre><code>git blame [filename]</code></pre>
+<p>To make working in the terminal more comfortable and to keep an overview, you can also use the following command to
+highlight the same commits in colour:</p>
+<pre><code>git blame --colour-lines [filename]</code></pre>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">1</span><span class="p">)</span> <span class="c1">#!/usr/bin/env python</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">2</span><span class="p">)</span> 
+<span class="n">f759623a</span> <span class="p">(</span><span class="n">G</span><span class="o">.</span> <span class="n">Raymond</span>  <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">23</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">3</span><span class="p">)</span> 
+<span class="n">f759623a</span> <span class="p">(</span><span class="n">G</span><span class="o">.</span> <span class="n">Raymond</span>  <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">23</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">4</span><span class="p">)</span> 
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">5</span><span class="p">)</span> <span class="kn">import</span> <span class="nn">secrets</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">6</span><span class="p">)</span> <span class="kn">import</span> <span class="nn">string</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">7</span><span class="p">)</span> <span class="kn">import</span> <span class="nn">time</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">8</span><span class="p">)</span> <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>   <span class="mi">9</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">pyfiglet</span> <span class="kn">import</span> <span class="n">Figlet</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">10</span><span class="p">)</span> <span class="kn">import</span> <span class="nn">argparse</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">11</span><span class="p">)</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">12</span><span class="p">)</span> 
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">13</span><span class="p">)</span> <span class="c1">#start = time.time()</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">14</span><span class="p">)</span> 
+<span class="n">f759623a</span> <span class="p">(</span><span class="n">G</span><span class="o">.</span> <span class="n">Raymond</span>  <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">23</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">15</span><span class="p">)</span> 
+<span class="n">f759623a</span> <span class="p">(</span><span class="n">G</span><span class="o">.</span> <span class="n">Raymond</span>  <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">23</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">16</span><span class="p">)</span> 
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">17</span><span class="p">)</span> <span class="n">chars_full</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">18</span><span class="p">)</span> <span class="n">chars_digits</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">19</span><span class="p">)</span> <span class="n">chars_ascii</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">20</span><span class="p">)</span> <span class="n">chars_punctuation</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">21</span><span class="p">)</span> <span class="n">chars_ascii_digits</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">22</span><span class="p">)</span> <span class="n">chars_ascii_punctuation</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">23</span><span class="p">)</span> <span class="n">chars_digits_punctuation</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span>
+<span class="o">^</span><span class="mf">32e5</span><span class="n">dca</span> <span class="p">(</span><span class="n">Joe</span> <span class="n">Blow</span>    <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">04</span> <span class="mi">09</span><span class="p">:</span><span class="mi">38</span><span class="p">:</span><span class="mi">59</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">24</span><span class="p">)</span> 
+<span class="mi">0</span><span class="n">d3407f3</span> <span class="p">(</span><span class="n">John</span> <span class="n">Smith</span>  <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">53</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">25</span><span class="p">)</span> 
+<span class="mi">0</span><span class="n">d3407f3</span> <span class="p">(</span><span class="n">John</span> <span class="n">Smith</span>  <span class="mi">2021</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">16</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">53</span> <span class="o">+</span><span class="mi">0200</span>  <span class="mi">26</span><span class="p">)</span> 
+
+</pre></div>
+</div>
+<p>This can be helpful when working with several people and you want to make sure that if there is a bug, for example,
+that you write to the right person about it.</p>
+<p>For more detailed handling of the <strong>git blame</strong> command, use the following command in the terminal:</p>
+<pre><code>git blame --help</code></pre>
+<p><a name="name1"></a></p>
+</section>
+<section id="gitignore-data">
+<h4>.gitignore-Data<a class="headerlink" href="#gitignore-data" title="Permalink to this headline">#</a></h4>
+<p>With the so-called gitignore you can have files ignored. The file .gitignore contains a list of paths that are ignored
+by git. Here, changes to this data will have no effect on the commands <strong>git diff</strong>, <strong>git add</strong>, etc.</p>
+<p><strong>Important</strong>: The .gitignore file should always be committed so that certain files, folders, etc. are not included in
+the shared repository in the first place. This can also be very important when working together in a larger team.</p>
+<p>Create a file called .gitignore inside your working directory as follows:</p>
+<pre><code>nano .gitignore</code></pre>
+<p>Example of the content of a .gitignore file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+.pybuilder/
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+#   For a library or package, you might want to ignore these files since the code is
+#   intended to run in multiple environments; otherwise, check them in:
+# .python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don&#39;t work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# poetry
+#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+#   This is especially recommended for binary packages to ensure reproducibility, and is more
+#   commonly ignored for libraries.
+#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+#poetry.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyCharm
+#  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
+#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+#  and can be added to the global gitignore or merged into this file.  For a more nuclear
+#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+#.idea/
+</pre></div>
+</div>
+<p>This is an example from the repository directly from Github. There are some concrete examples for all common programming
+languages that can be used freely. For research or direct use, you can find the corresponding .gitignore files
+<a class="reference external" href="https://github.com/github/gitignore">here</a>.</p>
+<p>test</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./article/intern/science_data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../../main_sites/main_principles_of_scientific_work_in_geo.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Computational principles in science?</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="article_datamanagement.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Datenmanagement</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tobias Rollet & Timm M. Wirtz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

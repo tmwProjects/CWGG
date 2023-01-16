@@ -1,0 +1,1467 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Quick starts &#8212; Computational working in Geoscience and Geography</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Python modules" href="article_python_s_modules_and_advanced.html" />
+    <link rel="prev" title="Python?" href="../../../main_sites/main_python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint">If you are interested in contributing, get in touch with us!</div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logo1.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational working in Geoscience and Geography</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Welcome to CWGG
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Computational principles in science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../main_sites/main_principles_of_scientific_work_in_geo.html">
+   Computational principles in science?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../science_data/article_git_github_gitlab.html">
+     Version control with Git
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../science_data/article_datamanagement.html">
+     Datenmanagement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../science_data/article_metadata.html">
+     Metadaten in den Wissenschaften
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../science_data/article_licenses.html">
+     Lizensierungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../science_data/article_data_repositories.html">
+     Data Repositories
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_python.html">
+   Python?
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Quick starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="article_python_s_modules_and_advanced.html">
+   Python modules
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="article_python_connection_to_tutorials_and_literature.html">
+   Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="article_python_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/python/article_extern_python_rollet_read_csv.html">
+     From Excel to Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  R
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_r.html">
+   R?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../r/article_r_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../r/article_r_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../r/article_r_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../r/article_r_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/r/article_extern_r_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Excel and LO-Calc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_excel_calc.html">
+   Excel and LO-Calc?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../excel_calc/article_excel_calc_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/excel_calc/article_extern_excel_calc_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  GIS
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_gis.html">
+   GIS?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gis/article_gis_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gis/article_gis_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../gis/article_gis_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../gis/article_gis_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/gis/article_extern_gis_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  LaTEX
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_latex.html">
+   LaTEX?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/article_latex_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/article_latex_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../latex/article_latex_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../latex/article_latex_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/latex/article_extern_latex_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Unix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_unix.html">
+   Unix ?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unix/article_unix_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unix/article_unix_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../unix/article_unix_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../unix/article_unix_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/unix/article_extern_unix_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Pandoc
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_pandoc.html">
+   Pandoc?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandoc/article_pandoc_q_starts.html">
+   Quick Starts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandoc/article_pandoc_s_modules_and_advanced.html">
+   Modules for Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pandoc/article_pandoc_connection_to_tutorials_and_literature.html">
+   Python Tutorials
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandoc/article_pandoc_student_project.html">
+   Community projects
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_1.html">
+     Python Project from Student 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_2.html">
+     Python Project from Student 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_3.html">
+     Python Project from Student 3
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extern/pandoc/article_extern_pandoc_4.html">
+     Python Project from Student 4
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Further information
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_Cross_topic_tools.html">
+   Cross topic tools
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_community.html">
+   Community
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_ways_to_share.html">
+   Share this book
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../main_sites/main_contributing.html">
+   Contributing
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Farticle/intern/python/article_python_q_starts.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/article/intern/python/article_python_q_starts.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#folder-structure">
+     Folder structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#readme-md">
+     README.md
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pycharm-idea">
+     Install Pycharm IDEA
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-linux">
+       For Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-windows">
+       For Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-macos">
+       For MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connect-pycharm-with-your-github-account">
+     Connect Pycharm with your Github Account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-git">
+     Install and configure Git
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-linux">
+       Git for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-windows">
+       Git for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-macos">
+       Git for MacOS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configure-git-local-on-your-pc">
+       Configure git local on your PC
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-python-3-9">
+     Install Python 3.9
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-for-linux">
+       Python for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-for-windows">
+       Python for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-for-macos">
+       Python for MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pip-and-python-modules">
+     Install pip and Python Modules
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pip-for-linux">
+       pip for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pip-for-windows">
+       pip for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pip-for-macos">
+       pip for MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fork-this-repository">
+     Fork this Repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-of-rules-for-the-workflow">
+     Set of rules for the workflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-code">
+     Let’s code!
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#here-are-some-helpful-links-for-programming-with-python-in-relation-to-earth-science">
+       Here are some helpful links for programming with Python in relation to Earth Science:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recommendations">
+       Recommendations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Quick starts</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#folder-structure">
+     Folder structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#readme-md">
+     README.md
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pycharm-idea">
+     Install Pycharm IDEA
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-linux">
+       For Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-windows">
+       For Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#for-macos">
+       For MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connect-pycharm-with-your-github-account">
+     Connect Pycharm with your Github Account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-and-configure-git">
+     Install and configure Git
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-linux">
+       Git for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-windows">
+       Git for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#git-for-macos">
+       Git for MacOS
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#configure-git-local-on-your-pc">
+       Configure git local on your PC
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-python-3-9">
+     Install Python 3.9
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-for-linux">
+       Python for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-for-windows">
+       Python for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#python-for-macos">
+       Python for MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-pip-and-python-modules">
+     Install pip and Python Modules
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pip-for-linux">
+       pip for Linux
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pip-for-windows">
+       pip for Windows
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pip-for-macos">
+       pip for MacOS
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fork-this-repository">
+     Fork this Repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-of-rules-for-the-workflow">
+     Set of rules for the workflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-code">
+     Let’s code!
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#here-are-some-helpful-links-for-programming-with-python-in-relation-to-earth-science">
+       Here are some helpful links for programming with Python in relation to Earth Science:
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recommendations">
+       Recommendations
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="quick-starts">
+<h1>Quick starts<a class="headerlink" href="#quick-starts" title="Permalink to this headline">#</a></h1>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="#folder-structure">Folder structure</a></p>
+<p><a class="reference external" href="#readmemd">README.md</a></p>
+<p><a class="reference external" href="#install-pycharm-idea">Install Pycharm IDEA</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#for-linux">Linux</a></p></li>
+<li><p><a class="reference external" href="#for-windows">Windows</a></p></li>
+<li><p><a class="reference external" href="#for-macos">MacOS</a></p></li>
+</ul>
+<p><a class="reference external" href="#connect-pycharm-with-your-github-account">Connect Pycharm with your Github Account</a></p>
+<p><a class="reference external" href="#install-and-configure-git">Install and configure Git</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#git-for-linux">Linux</a></p></li>
+<li><p><a class="reference external" href="#git-for-windows">Windows</a></p></li>
+<li><p><a class="reference external" href="#git-for-macos">MacOS</a></p></li>
+</ul>
+<p><a class="reference external" href="#install-python-39">Install Python 3.9</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#python-for-linux">Linux</a></p></li>
+<li><p><a class="reference external" href="#python-for-windows">Windows</a></p></li>
+<li><p><a class="reference external" href="#python-for-macos">MacOS</a></p></li>
+</ul>
+<p><a class="reference external" href="#install-pip-and-python-modules">Install pip and Python Modules</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#pip-for-linux">Linux</a></p></li>
+<li><p><a class="reference external" href="#pip-for-windows">Windows</a></p></li>
+<li><p><a class="reference external" href="#pip-for-macos">MacOS</a></p></li>
+</ul>
+<p><a class="reference external" href="#fork-this-repository">Fork this Repository</a></p>
+<p><a class="reference external" href="#set-of-rules-for-the-workflow">Rules for workflow</a></p>
+<p><a class="reference external" href="#lets-code">Let’s code!</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#here-are-some-helpful-links-for-programming-with-python-in-relation-to-earth-science">Links for programming with Python</a></p></li>
+<li><p><a class="reference external" href="#recommendations">Recommendations</a></p></li>
+</ul>
+<hr class="docutils" />
+<p><a name="fold"></a></p>
+<section id="folder-structure">
+<h3>Folder structure<a class="headerlink" href="#folder-structure" title="Permalink to this headline">#</a></h3>
+<p>For successful integration and participation in this repository, detailed knowledge of our folder structure is necessary.</p>
+<p><a name="read"></a></p>
+</section>
+<section id="readme-md">
+<h3><a class="reference external" href="http://README.md">README.md</a><a class="headerlink" href="#readme-md" title="Permalink to this headline">#</a></h3>
+<p><a name="pyc"></a></p>
+</section>
+<section id="install-pycharm-idea">
+<h3>Install Pycharm IDEA<a class="headerlink" href="#install-pycharm-idea" title="Permalink to this headline">#</a></h3>
+<p>To minimise difficulties and keep everything consistent, we will work with Pycharm here.</p>
+<p><a name="pycl"></a></p>
+<section id="for-linux">
+<h4>For Linux<a class="headerlink" href="#for-linux" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Pycharm Community Edition from <a class="reference external" href="https://www.jetbrains.com/pycharm/download/#section=linux">here</a></p></li>
+<li><p>Then execute the following command in the terminal in the download directory:</p></li>
+</ol>
+<pre><code>sudo tar xfz pycharm-*.tar.gz -C /opt/</code></pre>
+<ol class="simple">
+<li><p>In the terminal, navigate to the target directory:</p></li>
+</ol>
+<pre><code>cd /opt/pycharm-*/bin</code></pre>
+<ol class="simple">
+<li><p>Execute the bash script:</p></li>
+</ol>
+<pre><code>./pycharm.sh</code></pre>
+<p>The Pycharm welcome window should then appear.
+A desktop entry can be created via the small gearwheel.</p>
+<p><a name="pycw"></a></p>
+</section>
+<section id="for-windows">
+<h4>For Windows<a class="headerlink" href="#for-windows" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Pycharm Community Edition from <a class="reference external" href="https://www.jetbrains.com/pycharm/download/#section=windows">here</a></p></li>
+<li><p>Run the installer and follow the wizard steps.</p></li>
+</ol>
+<p><a name="pycm"></a></p>
+</section>
+<section id="for-macos">
+<h4>For MacOS<a class="headerlink" href="#for-macos" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Pycharm Community Edition from <a class="reference external" href="https://www.jetbrains.com/pycharm/download/#section=mac">here</a></p></li>
+<li><p>Mount the image and drag the PyCharm application into the application folder.</p></li>
+<li><p>Run the app from the Applications directory.</p></li>
+</ol>
+<p><a name="pycandgithub"></a></p>
+</section>
+</section>
+<section id="connect-pycharm-with-your-github-account">
+<h3>Connect Pycharm with your Github Account<a class="headerlink" href="#connect-pycharm-with-your-github-account" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>To integrate Github into PyCharm, go to <strong>Settings</strong> and type <strong>Github</strong> in the search bar. Under <strong>Version control</strong>
+you will now find the <strong>Github</strong> tab. Click on it and click on the small plus symbol.</p></li>
+<li><p>Select <strong>Log in via Github…</strong></p></li>
+</ul>
+<p>An authentication window will open in the web browser. Click on <strong>authorise</strong>.</p>
+<ul class="simple">
+<li><p>Enter your account details and accept.</p></li>
+<li><p>Github is then integrated into Pycharm.</p></li>
+</ul>
+<p><a name="gconf"></a></p>
+</section>
+<section id="install-and-configure-git">
+<h3>Install and configure Git<a class="headerlink" href="#install-and-configure-git" title="Permalink to this headline">#</a></h3>
+<p>In our <a class="reference external" href="https://github.com/tmwProjects/MSAT/blob/master/Set-Up/GITHUB_CONFIG.md">GITHUB_CONFIG.md</a>
+file you will find a comprehensive explanation of how to configure and use Git, as well as Github. For a quick start to
+contributing to this repository, the following steps are necessary.</p>
+<p><a name="gfl"></a></p>
+<section id="git-for-linux">
+<h4>Git for Linux<a class="headerlink" href="#git-for-linux" title="Permalink to this headline">#</a></h4>
+<p>Execute the following command in the terminal:</p>
+<pre><code>sudo apt-get install git</code></pre>
+<p><a name="gfw"></a></p>
+</section>
+<section id="git-for-windows">
+<h4>Git for Windows<a class="headerlink" href="#git-for-windows" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Git for Windows from <a class="reference external" href="https://git-scm.com/download/win">here</a>.</p></li>
+<li><p>Run the installer and follow the wizard steps.</p></li>
+</ol>
+<p><a name="gfm"></a></p>
+</section>
+<section id="git-for-macos">
+<h4>Git for MacOS<a class="headerlink" href="#git-for-macos" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download Git for Windows from <a class="reference external" href="https://git-scm.com/download/mac">here</a>.</p></li>
+<li><p>Run the installer and follow the wizard steps.</p></li>
+</ol>
+<p><a name="cgloyp"></a></p>
+</section>
+<section id="configure-git-local-on-your-pc">
+<h4>Configure git local on your PC<a class="headerlink" href="#configure-git-local-on-your-pc" title="Permalink to this headline">#</a></h4>
+<p>Execute the following command with your details in the terminal:</p>
+<pre><code>git config --global user.name "Pseudonym/Name"</code></pre>
+<pre><code>git config --global user.mail "Mailadress"</code></pre>
+<p>Example:</p>
+<pre><code>$ git config --global user.name "Jane Bloggs"
+$ git config --global user.mail "jane.bloggs@protonmail.com"</code></pre>
+<p>Furthermore, extremely complex configurations are possible.</p>
+<p><a name="python"></a></p>
+</section>
+</section>
+<section id="install-python-3-9">
+<h3>Install Python 3.9<a class="headerlink" href="#install-python-3-9" title="Permalink to this headline">#</a></h3>
+<p><a name="pyl"></a></p>
+<section id="python-for-linux">
+<h4>Python for Linux<a class="headerlink" href="#python-for-linux" title="Permalink to this headline">#</a></h4>
+<pre><code>$ sudo apt update</code></pre>
+<pre><code>$ sudo apt install python3.9</code></pre>
+<pre><code>$ python3.9 --version</code></pre>
+<p><a name="pym"></a></p>
+</section>
+<section id="python-for-windows">
+<h4>Python for Windows<a class="headerlink" href="#python-for-windows" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download <strong>Python3.9</strong> installer from <a class="reference external" href="https://www.python.org/ftp/python/3.9.8/python-3.9.8-amd64.exe">here</a> and start the Installer.</p></li>
+<li><p>Select the checkbox <strong>Add Python 3.9 to PATH</strong>. After that, click Customize Installation</p></li>
+<li><p>Now, you will reach the section Optional Features. This by default checks the <strong>pip</strong> package installer, test suite,
+py launcher, etc.</p></li>
+<li><p>Click <strong>Next</strong>.</p></li>
+<li><p>The Advanced Options section would be visible now. Select <strong>Install for all users</strong>. On selecting it will set the
+following installation path on it own. You can change the installation path by clicking Browse. If you want to keep
+the default path, click <strong>Install</strong>.</p></li>
+<li><p>After the Setup Progress click <strong>close</strong>.</p></li>
+<li><p>To verify the installation, go to <strong>START</strong> &gt;&gt; type <strong>CMD</strong>, right-click <strong>Open as Administrator</strong>.
+Execute in the terminal the following command:</p></li>
+</ol>
+<pre><code>python --version</code></pre>
+<p><a name="pymos"></a></p>
+</section>
+<section id="python-for-macos">
+<h4>Python for MacOS<a class="headerlink" href="#python-for-macos" title="Permalink to this headline">#</a></h4>
+<ol class="simple">
+<li><p>Download <strong>Python3.9</strong> installer from <a class="reference external" href="https://www.python.org/ftp/python/3.9.8/python-3.9.8-macos11.pkg">here</a> and start the Installer.</p></li>
+</ol>
+<p><strong>IMPORTANT</strong>: If you need an Intel-only Install image, download the image from <a class="reference external" href="https://www.python.org/ftp/python/3.9.8/python-3.9.8-macosx10.9.pkg">here</a>.</p>
+<ol class="simple">
+<li><p>Follow the installation instructions.</p></li>
+<li><p>To verify the installation execute in the terminal the following command:</p></li>
+</ol>
+<pre><code>python --version</code></pre>
+<p><a name="mods"></a></p>
+</section>
+</section>
+<section id="install-pip-and-python-modules">
+<h3>Install pip and Python Modules<a class="headerlink" href="#install-pip-and-python-modules" title="Permalink to this headline">#</a></h3>
+<p>For the installation of Python modules a few small steps are necessary. First of all, make sure that the pip programme
+is installed. pip the package installer for Python. You can use pip to install packages from the Python Package Index
+and other indexes. The procedures for the most common operating systems are described below.</p>
+<p><a name="pyml"></a></p>
+<section id="pip-for-linux">
+<h4>pip for Linux<a class="headerlink" href="#pip-for-linux" title="Permalink to this headline">#</a></h4>
+<p>First, execute the following commands in the terminal:</p>
+<pre><code>sudo apt update</code></pre>
+<pre><code>sudo apt-get -y install python3-pip</code></pre>
+<p>Modules can then be installed with the following command:</p>
+<pre><code>pip3 install [PACKAGE] 
+
+sudo pip3 install [PACKAGE]</code></pre>
+<p>For example:</p>
+<pre><code>pip3 install matchMS</code></pre>
+<p>Depending on the Linux distribution, the commands may differ slightly.</p>
+<p><a name="pymw"></a></p>
+</section>
+<section id="pip-for-windows">
+<h4>pip for Windows<a class="headerlink" href="#pip-for-windows" title="Permalink to this headline">#</a></h4>
+<p><strong>IMPORTANT</strong>: Install pip via <a class="reference external" href="http://get-pip.py">get-pip.py</a> only with Python3 or later. This method doesn’t work for earlier versions.</p>
+<ol class="simple">
+<li><p>Download the get-pip File from <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">here</a>.</p></li>
+<li><p>Execute the following command in the terminal:</p></li>
+</ol>
+<pre><code>python get-pip.py</code></pre>
+<p>If the file isn’t found, double-check the path to the folder where you saved the file. You can view the contents of
+your current directory using the following command:</p>
+<pre><code>dir</code></pre>
+<ol class="simple">
+<li><p>Verify your installation:</p></li>
+</ol>
+<pre><code>pip help</code></pre>
+<ol class="simple">
+<li><p>To run PIP from any location, you need to add it to Windows environment variables to avoid getting the “not on PATH”
+error. To do so, follow the steps outlined below:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Open the System and Security window by searching for it in the Control Plane.</p></li>
+<li><p>Navigate to System settings.</p></li>
+<li><p>Select Advanced system settings.</p></li>
+<li><p>Select New and add the directory where you installed PIP.</p></li>
+<li><p>Click OK to save the changes.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Upgrade pip with the the following command in the terminal:</p></li>
+</ol>
+<pre><code>python -m pip install --upgrade pip</code></pre>
+<p><a name="pymm"></a></p>
+</section>
+<section id="pip-for-macos">
+<h4>pip for MacOS<a class="headerlink" href="#pip-for-macos" title="Permalink to this headline">#</a></h4>
+<p><strong>IMPORTANT</strong>: Install pip via <a class="reference external" href="http://get-pip.py">get-pip.py</a> only with Python3 or later. This method doesn’t work for earlier versions.</p>
+<ol class="simple">
+<li><p>Download the get-pip File from <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">here</a>.</p></li>
+<li><p>Execute the following command in the terminal:</p></li>
+</ol>
+<pre><code>python get-pip.py</code></pre>
+<p>If the file isn’t found, double-check the path to the folder where you saved the file. You can view the contents of
+your current directory using the following command:</p>
+<pre><code>dir</code></pre>
+<ol class="simple">
+<li><p>Verify your installation:</p></li>
+</ol>
+<pre><code>pip help</code></pre>
+<ol class="simple">
+<li><p>Upgrade pip with the the following command in the terminal:</p></li>
+</ol>
+<pre><code>python -m pip install --upgrade pip</code></pre>
+<p><a name="fork"></a></p>
+</section>
+</section>
+<section id="fork-this-repository">
+<h3>Fork this Repository<a class="headerlink" href="#fork-this-repository" title="Permalink to this headline">#</a></h3>
+<p>“A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without
+affecting the original project.”</p>
+<p>Source: <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/fork-a-repo">Github Docs</a></p>
+<p>The easiest way to fork a repository is to log in with your account on Github and visit the corresponding repository.
+On the start page, you will find a button in the top right-hand corner that is labelled <strong>Fork</strong>.</p>
+<ul class="simple">
+<li><p><strong>Click</strong> on this button. A copy of the repository will then be cloned to your account.</p></li>
+<li><p>Then open the Pycharm welcome window.</p></li>
+<li><p><strong>Click</strong> on <strong>Projects</strong>.</p></li>
+<li><p>Then <strong>click</strong> on <strong>Get from VCS</strong>. A window will open where you can select your personal Github account. Once you
+have done this, we will see all the projects or repositories. Select the appropriate one to clone it on your current PC.</p></li>
+</ul>
+<p><a name="rule"></a></p>
+</section>
+<section id="set-of-rules-for-the-workflow">
+<h3>Set of rules for the workflow<a class="headerlink" href="#set-of-rules-for-the-workflow" title="Permalink to this headline">#</a></h3>
+<p>To get a structured view of whether you are programming cleanly, you can read through a few principles that can help
+you. You can find them in our <a class="reference external" href="https://github.com/tmwProjects/MSAT/tree/master/Set-Up/CODING_RULES.md">CODING_RULES.md</a> file.</p>
+<p><a name="lcode"></a></p>
+</section>
+<section id="let-s-code">
+<h3>Let’s code!<a class="headerlink" href="#let-s-code" title="Permalink to this headline">#</a></h3>
+<p>In our repository you will find a small file called <strong><a class="reference external" href="http://main.py">main.py</a></strong>. This is a small template with simple structures for a
+simplified overview for a quick start. You will notice that a module called <strong>time</strong> is already imported into this
+template. This, in conjunction with the small code that comes before and after your own code, measures the runtime
+of your code.</p>
+<p>The lower this is, the better.</p>
+<p><a name="helplink"></a></p>
+<section id="here-are-some-helpful-links-for-programming-with-python-in-relation-to-earth-science">
+<h4>Here are some helpful links for programming with Python in relation to Earth Science:<a class="headerlink" href="#here-are-some-helpful-links-for-programming-with-python-in-relation-to-earth-science" title="Permalink to this headline">#</a></h4>
+<p><a class="reference external" href="https://www.earthdatascience.org/">Earth data science</a>: “This site contains open, tutorials and course materials
+covering topics including data integration, GIS and data intensive science.”</p>
+<p><a class="reference external" href="https://geo-python.github.io/site/2019/index.html">Geo-Python 2019</a>: “The Geo-Python course teaches you the basic
+concepts of programming using the Python programming language in a format that is easy to learn and understand (no
+previous programming experience required). Each lesson is a tutorial with specific topic(s) where the aim is to gain
+skills and understanding how to solve common data-related tasks using Python programming (see schedule &amp; learning goals).
+Course is organized by the Department of Geosciences and Geography at the University of Helsinki.”</p>
+<p><a class="reference external" href="https://imparoanalytics.com/">ImparoAnalytics</a>: “Earth Science is an interdisciplinary subject, using physics,
+chemistry, biology, geology and mathematics to understand how the solid earth, oceans and atmosphere work, how people
+impact the environment and how we can manage the earth’s natural resources in a sustainable manner. Earth Science
+datasets are increasing in size and complexity, and Earth Scientists need new approaches to data analysis and problem
+solving. Which is why Earth Data Science is a rapidly emerging field, as data science provides the toolbox to deal with
+data from a variety of sources and scales. From data acquisition, processing, visualizing, analysis and modeling, data
+science skills are increasingly core to the work of Earth Scientists.”</p>
+<ul class="simple">
+<li><p>The Repositorys with tutorials on Github can be found <a class="reference external" href="https://github.com/A-Soden">here</a>.</p></li>
+</ul>
+<p><a class="reference external" href="https://earth-env-data-science.github.io/intro.html">An Introduction to Earth and Environmental Data Science</a>:
+“This book grew out of a course developed at Columbia University
+called Research Computing in Earth Science. It was written mostly by Ryan Abernathey, with significant contributions
+from Kerry Key and Tim Crone. By separating the book from the class, we hope to create an open-source community resource
+for Python education in the Earth and Environmental Sciences.”</p>
+<p><a name="recom"></a></p>
+</section>
+<section id="recommendations">
+<h4>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">#</a></h4>
+<p>A small recommendation here is <a class="reference external" href="https://zealdocs.org/"><strong>Zeal</strong></a>. Zeal is a cross-platform offline documentation
+browser for developers. Zeal is available for Linux, Windows and MacOS. Zeal comes out of the box with a large set of
+docsets. These are not included in ZEAL, but can be downloaded with a few clicks.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./article/intern/python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../../../main_sites/main_python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Python?</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="article_python_s_modules_and_advanced.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Python modules</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Tobias Rollet & Timm M. Wirtz<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
